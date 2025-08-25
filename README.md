@@ -31,8 +31,8 @@ A fun Chrome extension that displays an **Elden Ring-style banner** and plays a 
 └─ elden_ring_sound.mp3
 
 
-6. Open Gmail or Outlook and compose an email.
-7. Press **Send** and you should see the banner and hear the sound.
+7. Open Gmail or Outlook and compose an email.
+8. Press **Send** and you should see the banner and hear the sound.
 
 ---
 
