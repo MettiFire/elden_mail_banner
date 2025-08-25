@@ -7,6 +7,8 @@
     z-index: 999999;
     transition: all 0.5s ease-out;
     pointer-events: none;
+    width: 100vw;              
+    display: flex;
 }
 
 #elden-ring-banner.show {
@@ -15,7 +17,9 @@
 }
 
 #elden-ring-banner img {
-    max-width: 80%;
+    width: 100vw;              /* Nuovo: l’immagine occupa tutta la larghezza */
+    max-width: 100vw;          /* Non supera mai la larghezza della schermata */
     height: auto;
     filter: drop-shadow(0 0 10px black);
+    display: block;
 }
