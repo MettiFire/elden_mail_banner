@@ -1,0 +1,21 @@
+#elden-ring-banner {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+    opacity: 0;
+    z-index: 999999;
+    transition: all 0.5s ease-out;
+    pointer-events: none;
+}
+
+#elden-ring-banner.show {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+#elden-ring-banner img {
+    max-width: 80%;
+    height: auto;
+    filter: drop-shadow(0 0 10px black);
+}
