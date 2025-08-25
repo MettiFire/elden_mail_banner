@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "Email Sent Elden Ring",
+  "name": "Elden Email",
   "version": "1.0",
-  "description": "Mostra un banner Elden Ring quando invii un'email su Gmail o Outlook",
+  "description": "Shows an Elden Ring banner when you send an email.",
   "permissions": ["scripting", "tabs"],
   "host_permissions": [
     "https://mail.google.com/*",
@@ -15,14 +15,11 @@
         "https://outlook.office.com/*"
       ],
       "js": ["content.js"],
-      "css": ["style.css"],
-      "all_frames": true,
-      "run_at": "document_end"
-
+      "css": ["style.css"]
     }
   ],
   "icons": {
-    "48": "assets/email_sent.png"
+    "48": "assets/icon.png"
   },
   "web_accessible_resources": [
     {
