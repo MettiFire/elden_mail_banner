@@ -25,12 +25,12 @@ When you hit **Send** in Gmail or Outlook Web, a dramatic banner appears with so
 ---
 
 ## 📂 Project Structure
-├── manifest.json # Extension manifest
-├── content.js # Core script (banner logic)
-├── style.css # Styles for banner
-└── assets/ # Icons and sound
-├── email_sent.png
-└── elden_ring_sound.mp3
+├── manifest.json # Extension manifest<br>
+├── content.js # Core script (banner logic)<br>
+├── style.css # Styles for banner<br>
+└── assets/ # Icons and sound<br>
+├── email_sent.png<br>
+└── elden_ring_sound.mp3<br>
 
 ---
 
