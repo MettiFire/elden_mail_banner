@@ -13,6 +13,10 @@ When you hit **Send** in Gmail or Outlook Web, a dramatic banner appears with so
 
 ---
 
+<img width="1440" height="678" alt="Screenshot 2025-08-26 at 10 44 48" src="https://github.com/user-attachments/assets/9527aa19-a714-4f5b-af28-ae552a788465" />
+
+---
+
 ## 🔧 Installation
 
 1. **Download** this project (clone or `.zip` extract).  
