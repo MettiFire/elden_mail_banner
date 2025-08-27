@@ -1,51 +1,61 @@
-/*function showEldenRingBanner() {
-    console.log("Banner function called");
-
-    // Banner
-    const banner = document.createElement('div');
-    banner.id = 'elden-ring-banner';
-    banner.innerHTML = `<img src="${chrome.runtime.getURL('assets/email_sent.png')}" alt="Email Sent">`;
-    document.body.appendChild(banner);
-    console.log("Banner appended");
-
-    // Suono
-    const audio = new Audio(chrome.runtime.getURL('assets/elden_ring_sound.mp3'));
-    audio.volume = 0.35;
-    audio.play().catch(err => console.error("Errore nel suono:", err));
-
-    // Animazione
-    setTimeout(() => banner.classList.add('show'), 50);
-    setTimeout(() => {
-        banner.classList.remove('show');
-        setTimeout(() => banner.remove(), 500);
-    }, 3000);
-}*/
-
-const bannerImgUrl = chrome.runtime.getURL("assets/email_sent.png");
+// in modo che non si blocchi quando cambia scena
+const bannerImgUrl = chrome.runtime.getURL("assets/email_sent_yellow.png");
 const soundUrl = chrome.runtime.getURL("assets/elden_ring_sound.mp3");
 
+/*
 function showEldenRingBanner() {
     console.log("Banner function called");
 
-    // Banner
+    // banner
     const banner = document.createElement("div");
     banner.id = "elden-ring-banner";
     banner.innerHTML = `<img src="${bannerImgUrl}" alt="Email Sent">`;
     document.body.appendChild(banner);
     console.log("Banner appended");
 
-    // Suono
+    // suono
     const audio = new Audio(soundUrl);
     audio.volume = 0.35;
     audio.play().catch(err => console.error("Errore nel suono:", err));
 
-    // Animazione
+    // animazione
     setTimeout(() => banner.classList.add("show"), 50);
     setTimeout(() => {
         banner.classList.remove("show");
         setTimeout(() => banner.remove(), 500);
     }, 3000);
 }
+*/
+
+function showEldenRingBanner() {
+    console.log("Banner function called");
+
+    chrome.storage.sync.get(["soundEnabled", "bannerColor"], (prefs) => {
+        const bannerColor = prefs.bannerColor || "yellow";
+        const soundEnabled = prefs.soundEnabled !== false;
+
+        const banner = document.createElement('div');
+        banner.id = 'elden-ring-banner';
+        banner.innerHTML = `<img src="${chrome.runtime.getURL(`assets/email_sent_${bannerColor}.png`)}" alt="Email Sent">`;
+        document.body.appendChild(banner);
+        console.log("Banner appended");
+
+        if (soundEnabled) {
+            const audio = new Audio(chrome.runtime.getURL('assets/elden_ring_sound.mp3'));
+            audio.volume = 0.35;
+            audio.play().catch(err => console.error("Errore nel suono:", err));
+        }
+
+        setTimeout(() => banner.classList.add('show'), 50);
+        setTimeout(() => {
+            banner.classList.remove('show');
+            setTimeout(() => banner.remove(), 500);
+        }, 3000);
+    });
+}
+
+
+
 
 // Gmail observer
 const gmailObserver = new MutationObserver(() => {

@@ -1,0 +1,61 @@
+@font-face {
+    font-family: 'Mantinia';
+    src: url('assets/Mantinia-Regular.otf') format('opentype');
+}
+
+body {
+    width: 220px;
+    background-color: #1b1b1b;
+    color: white;
+    font-family: Arial, sans-serif;
+    font-weight: 15px;
+    padding: 10px;
+    border-radius: 12px;
+}
+
+h1 {
+    font-family: 'Mantinia', serif;
+    text-align: center;
+    font-size: 25px;
+    color: gold;
+    text-shadow: 0 0 5px rgba(255, 215, 0, 0.8);
+    margin-bottom: 10px;
+}
+
+.setting {
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#colorChoices {
+    display: flex;
+    gap: 5px;
+}
+
+.color-option {
+    width: 20px;
+    height: 20px;
+    border-radius: 6px;
+    border: 2px solid #1b1b1b;
+    cursor: pointer;
+}
+
+.color-option.selected {
+    border-color: white;
+}
+
+#kofiButton {
+    display: block;
+    text-align: center;
+    margin-top: 12px;
+    padding: 6px;
+    background-color: #29abe0;
+    color: white;
+    border-radius: 6px;
+    text-decoration: none;
+}
+#kofiButton:hover {
+    background-color: #218cbf;
+}
