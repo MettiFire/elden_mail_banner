@@ -1,5 +1,4 @@
 # 📜 Email Sent Elden Ring Extension
-
 An Elden Ring–inspired Chrome extension that makes sending emails more epic.  
 When you hit **Send** in Gmail or Outlook Web, a dramatic banner appears with sound, just like in the Lands Between. ⚔️
 
@@ -18,7 +17,6 @@ When you hit **Send** in Gmail or Outlook Web, a dramatic banner appears with so
 ---
 
 ## 🔧 Installation
-
 1. **Download** this project (clone or `.zip` extract).  
 2. Open your browser and go to: `chrome://extensions/`  
 3. Enable **Developer Mode** (top right toggle).  
@@ -45,7 +43,6 @@ On Gmail, you may need to refresh the page the first time.
 ---
 
 ## 🌍 Language Support
-
 Currently, Elden Mail Banner works only in Italian, because it detects the send button by looking for the Italian text "Invia" in Gmail and Outlook Web.
 
 If you want to make it work in another language:
@@ -61,7 +58,6 @@ A multi-language version is planned for a future release.
 ---
 
 ## 💖 Support the Project
-
 If you enjoy this little project and want to support its development, consider buying me a coffee <3 it would be insanely appreciated.  
 Your support helps me add more languages, sounds, and customization features!
 
