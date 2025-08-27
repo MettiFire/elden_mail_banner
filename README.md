@@ -60,6 +60,16 @@ A multi-language version is planned for a future release.
 
 ---
 
+## 💖 Support the Project
+
+If you enjoy this little project and want to support its development, consider buying me a coffee <3 it would be insanely appreciated.  
+Your support helps me add more languages, sounds, and customization features!
+
+[![Donate via Ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/M4M11KB4TU)
+
+
+---
+
 
 ## ✨ Credits
 Inspired by **Elden Ring** (FromSoftware).  
