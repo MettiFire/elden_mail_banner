@@ -2,30 +2,6 @@
 const bannerImgUrl = chrome.runtime.getURL("assets/email_sent_yellow.png");
 const soundUrl = chrome.runtime.getURL("assets/elden_ring_sound.mp3");
 
-/*
-function showEldenRingBanner() {
-    console.log("Banner function called");
-
-    // banner
-    const banner = document.createElement("div");
-    banner.id = "elden-ring-banner";
-    banner.innerHTML = `<img src="${bannerImgUrl}" alt="Email Sent">`;
-    document.body.appendChild(banner);
-    console.log("Banner appended");
-
-    // suono
-    const audio = new Audio(soundUrl);
-    audio.volume = 0.35;
-    audio.play().catch(err => console.error("Errore nel suono:", err));
-
-    // animazione
-    setTimeout(() => banner.classList.add("show"), 50);
-    setTimeout(() => {
-        banner.classList.remove("show");
-        setTimeout(() => banner.remove(), 500);
-    }, 3000);
-}
-*/
 
 function showEldenRingBanner() {
     console.log("Banner function called");

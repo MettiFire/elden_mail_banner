@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<meta charset="UTF-8">
 <html>
 <head>
   <link rel="stylesheet" href="popup.css">
@@ -8,8 +9,12 @@
 
   <div class="setting">
     <label for="soundToggle">Enable sound</label>
-    <input type="checkbox" id="soundToggle">
+    <label class="switch">
+      <input type="checkbox" id="soundToggle">
+      <span class="slider"></span>
+    </label>
   </div>
+
 
   <div class="setting">
     <span>Choose banner color:</span>
@@ -19,8 +24,44 @@
       <div class="color-option" data-color="blue" style="background-color: blue;"></div>
     </div>
   </div>
+  
+  <!-- Enable sites 
+  <div class="setting">
+    <span>Enable on sites:</span>
+      <div class="site-switch">
+        <label for="gmailToggle">Gmail</label>
+        <label class="switch">
+          <input type="checkbox" id="gmailToggle">
+          <span class="slider"></span>
+        </label>
+      </div>
+      <div class="site-switch">
+        <label for="outlookToggle">Outlook</label>
+        <label class="switch">
+          <input type="checkbox" id="outlookToggle">
+          <span class="slider"></span>
+        </label>
+      </div>
+      <div class="site-switch">
+        <label for="yahooToggle">Yahoo Mail</label>
+        <label class="switch">
+          <input type="checkbox" id="yahooToggle">
+          <span class="slider"></span>
+        </label>
+      </div>
+      <div class="site-switch">
+        <label for="icloudToggle">iCloud Mail</label>
+        <label class="switch">
+          <input type="checkbox" id="icloudToggle">
+          <span class="slider"></span>
+        </label>
+      </div>
+  </div>
+  -->
 
-  <a id="kofiButton" href="https://ko-fi.com/yourpage" target="_blank">☕ Support on Ko-fi</a>
+  <a id="kofiButton" href="https://ko-fi.com/mettignis" target="_blank">
+    <img src="https://ko-fi.com/img/githubbutton_sm.svg" alt="Donate via Ko-fi" style="width:100%; border-radius:6px;">
+  </a>
 
   <script src="popup.js"></script>
 </body>
