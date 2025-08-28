@@ -56,10 +56,13 @@ function showEldenRingBanner() {
 
 
 
+//You can add more language options here
+const keywords = ["Invia","Send","傳送","发送","送信","보내기","Enviar","Senden","Envoyer"]
 
 // Gmail observer
 const gmailObserver = new MutationObserver(() => {
-    const sendButtons = document.querySelectorAll('[aria-label^="Invia"], [data-tooltip^="Invia"]');
+    const buttons_selector = keywords.map(k => `[aria-label^="${k}"], [data-tooltip^="${k}"]`)
+    const sendButtons = document.querySelectorAll(buttons_selector);
     sendButtons.forEach(btn => {
         if (!btn.dataset.eldenRingAttached) {
             btn.addEventListener('click', () => {
@@ -74,7 +77,8 @@ gmailObserver.observe(document.body, { childList: true, subtree: true });
 
 // Outlook observer
 const outlookObserver = new MutationObserver(() => {
-    const sendBtn = document.querySelector('button[title="Invia"]');
+    const btn_selector = keywords.map(k => `button[title="${k}"]`);
+    const sendBtn = document.querySelector(btn_selector);
     if (sendBtn && !sendBtn.dataset.eldenRingAttached) {
         sendBtn.addEventListener('click', () => {
             console.log("Outlook send button clicked");
