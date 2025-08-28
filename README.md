@@ -38,7 +38,7 @@ When you hit **Send** in Gmail or Outlook Web, a dramatic banner appears with so
 ---
 
 ## ⚠️ Known Issues
-You may need to refresh the page the first time.  
+You may need to refresh the page when you leave it open for a long time before it works.  
 
 ---
 
@@ -48,7 +48,7 @@ Currently, Elden Mail Banner works only in Italian, because it detects the send 
 If you want to make it work in another language:
 
 - Open the file: `content.js`
-- Find all occurrences of `Invia` (for example: `[aria-label^="Invia"], [data-tooltip^="Invia"] button[title="Invia"]`
+- Find all occurrences of `Invia` (for example: `[aria-label^="Invia"], [data-tooltip^="Invia"] button[title="Invia"]`)
 - Replace `Invia` with the equivalent Send button text in your language: `Send` → English, `Enviar` → Spanish, `Envoyer` → French, `Senden` → German. Or whatever your email browser displays.
 
 💡 Tip: You can add multiple languages by separating selectors with commas, e.g.: `[aria-label^="Invia"], [aria-label^="Send"], [aria-label^="Envoyer"]`
@@ -68,7 +68,8 @@ Your support helps me add more languages, sounds, and customization features!
 
 
 ## ✨ Credits
-Inspired by **Elden Ring** (FromSoftware).
+Inspired by **Elden Ring** (FromSoftware).<br>
 Thanks to https://rezuaq.be/new-area/image-creator/ for the images.
+
 Created just for fun.  
 
