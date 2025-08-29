@@ -66,7 +66,6 @@ Your support helps me add more languages, sounds, and customization features!
 
 ---
 
-
 ## ✨ Credits
 Inspired by **Elden Ring** (FromSoftware).<br>
 Thanks to https://rezuaq.be/new-area/image-creator/ for the images.
