@@ -8,7 +8,8 @@ When you hit **Send** in Gmail or Outlook Web, a dramatic banner appears with so
 - 📨 Works on **Gmail** and **Outlook Web**  
 - 📜 Elden Ring–style banner on email sent  
 - 🎵 Sound effect included  
-- 🗡 Custom medieval-style icon  
+- 🗡 Custom medieval-style icon
+- 🎨 Choose the color of your banner
 
 ---
 
@@ -17,43 +18,69 @@ When you hit **Send** in Gmail or Outlook Web, a dramatic banner appears with so
 ---
 
 ## 🔧 Installation
-1. **Download** this project (clone or `.zip` extract).  
-2. Open your browser and go to: `chrome://extensions/`  
-3. Enable **Developer Mode** (top right toggle).  
-4. Click **Load unpacked** and select the project folder.  
+
+> ⚠️ **Recommended:**  
+> You can easily install Elden Email directly from the [Chrome Web Store](https://chromewebstore.google.com/) or other browser extension stores.  
+> This way, you’ll automatically receive updates and bug fixes.
+
+> **Manual installation (not recommended):**  
+> If you prefer to install it locally (for development or curiosity), follow these steps:
+
+1. **Download** this project (clone or `.zip` extract).
+2. Open your browser and go to: `chrome://extensions/`
+3. Enable **Developer Mode** (top right toggle).
+4. Click **Load unpacked** and select the project folder.
 5. Done! Try sending an email.
 
+> **Note:**  
+> Manually installed extensions do not receive automatic updates. For the best experience, use the official store version.
 
 ---
 
 ## 📂 Project Structure
-├── manifest.json # Extension manifest<br>
-├── content.js # Core script (banner logic)<br>
-├── style.css # Styles for banner<br>
-├── popup.html # Pop up <br>
-├── popup.css # Pop up style <br>
-├── popup.js # Pop up logic <br>
-└── assets/ # Icons and sound<br>
-
----
-
-## ⚠️ Known Issues
-You may need to refresh the page when you leave it open for a long time before it works.  
+├── manifest.json       # Extension manifest<br>
+├── content.js          # Core script (banner logic)<br>
+├── style.css           # Styles for banner<br>
+├── popup.html          # Pop up <br>
+├── popup.css           # Pop up style <br>
+├── popup.js            # Pop up logic <br>
+├── privacy_policy.md   # Privacy <br>
+├── README.md           # Rules and info <br>
+└── assets/             # Icons and sound<br> 
 
 ---
 
 ## 🌍 Language Support
-Currently, Elden Mail Banner works only in Italian, because it detects the send button by looking for the Italian text "Invia" in Gmail and Outlook Web.
+As promised, now the extension supports the following languages for the Send button:
 
-If you want to make it work in another language:
+- 🇮🇹 Italian (`Invia`)
+- 🇬🇧 English (`Send`)
+- 🇨🇳 Chinese (`发送` / `傳送`)
+- 🇯🇵 Japanese (`送信`)
+- 🇰🇷 Korean (`보내기`)
+- 🇪🇸 Spanish (`Enviar`)
+- 🇩🇪 German (`Senden`)
+- 🇫🇷 French (`Envoyer`)
+- 🇷🇺 Russian (`Отправить`)
+- 🇸🇦 Arabic (`إرسال`)
+- 🇹🇭 Thai (`ส่ง`)
+- 🇸🇪 Swedish (`Skicka`)
 
-- Open the file: `content.js`
-- Find all occurrences of `Invia` (for example: `[aria-label^="Invia"], [data-tooltip^="Invia"] button[title="Invia"]`)
-- Replace `Invia` with the equivalent Send button text in your language: `Send` → English, `Enviar` → Spanish, `Envoyer` → French, `Senden` → German. Or whatever your email browser displays.
+If your language isn’t listed, don't hesitate to contact me!
 
-💡 Tip: You can add multiple languages by separating selectors with commas, e.g.: `[aria-label^="Invia"], [aria-label^="Send"], [aria-label^="Envoyer"]`
+---
 
-A multi-language version is planned for a future release.
+## ⚠️ Known Issues
+You may need to refresh the page when you leave it open for a long time before it works. 
+
+---
+
+## 🛡️ Privacy
+Elden Email does **not** collect, transmit, or share any personal information.  
+User preferences for banner color and sound are saved only locally (using Chrome storage).  
+No email contents, personal data, or browsing history are accessed or stored.
+
+See the [Privacy Policy](./PRIVACY_POLICY.md) for more details.
 
 ---
 
@@ -62,7 +89,6 @@ If you enjoy this little project and want to support its development, consider b
 Your support helps me add more languages, sounds, and customization features!
 
 [![Donate via Ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/mettignis)
-
 
 ---
 
