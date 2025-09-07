@@ -65,6 +65,9 @@ outlookObserver.observe(document.body, { childList: true, subtree: true });
 // Percorsi pre-caricati
 const soundUrl = chrome.runtime.getURL("assets/elden_ring_sound.mp3");
 
+// Lista di parole chiave "Invia" in varie lingue
+const keywords = ["Invia","Send","傳送","发送","送信","보내기","Enviar","Senden","Envoyer","Отправить","إرسال","ส่ง","Skicka"];
+
 // Variabili per le impostazioni
 let soundEnabled = true;
 let bannerColor = "yellow";
@@ -108,6 +111,7 @@ function showEldenRingBanner() {
     }, 3000);
 }
 
+/*
 // Gmail observer
 const gmailObserver = new MutationObserver(() => {
     const sendButtons = document.querySelectorAll('[aria-label^="Invia"], [data-tooltip^="Invia"]');
@@ -133,5 +137,37 @@ const outlookObserver = new MutationObserver(() => {
         });
         sendBtn.dataset.eldenRingAttached = "true";
     }
+});
+outlookObserver.observe(document.body, { childList: true, subtree: true }); */
+
+// Gmail observer
+const gmailObserver = new MutationObserver(() => {
+    keywords.forEach(k => {
+        document.querySelectorAll(`[aria-label="${k}"], [data-tooltip="${k}"]`).forEach(btn => {
+            if (!btn.dataset.eldenRingAttached) {
+                btn.addEventListener('click', () => {
+                    console.log("Gmail send button clicked");
+                    setTimeout(showEldenRingBanner, 500);
+                });
+                btn.dataset.eldenRingAttached = "true";
+            }
+        });
+    });
+});
+gmailObserver.observe(document.body, { childList: true, subtree: true });
+
+// Outlook observer
+const outlookObserver = new MutationObserver(() => {
+    keywords.forEach(k => {
+        document.querySelectorAll(`button[title="${k}"]`).forEach(btn => {
+            if (!btn.dataset.eldenRingAttached) {
+                btn.addEventListener('click', () => {
+                    console.log("Outlook send button clicked");
+                    setTimeout(showEldenRingBanner, 500);
+                });
+                btn.dataset.eldenRingAttached = "true";
+            }
+        });
+    });
 });
 outlookObserver.observe(document.body, { childList: true, subtree: true });
