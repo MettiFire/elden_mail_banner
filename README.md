@@ -70,6 +70,50 @@ If your language isn’t listed, don't hesitate to contact me!
 
 ---
 
+## 🖥️ Browser Compatibility & Installation
+
+Elden Email is designed to work not only on Chrome, but also on the most popular browsers thanks to their support for Chrome extensions and the WebExtensions standard.
+
+### 🌐 Chrome
+- **Recommended:** Search for “Elden Email” on the Chrome Web Store and install in one click.
+- **Manual:** See instructions above, but the official store version is preferred for automatic updates.
+
+### 🟦 Edge
+- **Compatibility:** Microsoft Edge supports Chrome extensions almost 100%.
+- **How to Install:**  
+  - Visit [Microsoft Edge Add-ons](https://microsoftedge.microsoft.com/addons).
+  - Search for “Elden Email” and install directly from the store.
+
+### 🟥 Opera
+- **Compatibility:** Opera supports Manifest V2/V3 extensions.
+- **How to Install:**  
+  - Go to [Opera Add-ons](https://addons.opera.com).
+  - Search for “Elden Email” and install from the store.
+
+### 🟧 Firefox
+- **Compatibility:** Firefox uses the “WebExtensions” system, very similar to Chrome’s.
+- **How to Install:**  
+  - Visit [Firefox Add-ons](https://addons.mozilla.org).
+  - Search for “Elden Email” and install from the store.
+  - If you are publishing, note:
+    - Some APIs differ (`chrome.*` → `browser.*`).
+    - Images must be listed in `web_accessible_resources` with a slightly different format.
+    - Some functions may need a [webextension-polyfill](https://github.com/mozilla/webextension-polyfill).
+    - If you get errors, consult the [MDN migration guide](https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/Chrome_incompatibilities).
+
+### 🟩 Brave, Vivaldi, and other Chromium Browsers
+- **Compatibility:** Full support for Chrome extensions.
+- **How to Install:**  
+  - Search for “Elden Email” on the Chrome Web Store and install directly.
+  - No manual installation required.
+
+
+> **Note:**  
+> For all supported browsers, once the extension is published in their respective stores, you should always install it from the official store to receive updates and the best experience.  
+> Manual installation via ZIP is only recommended for development or testing and does **not** provide automatic updates.
+
+---
+
 ## ⚠️ Known Issues
 You may need to refresh the page when you leave it open for a long time before it works. 
 
