@@ -29,7 +29,7 @@
   },
   "web_accessible_resources": [
     {
-      "resources": ["assets/email_sent_yellow.png", "assets/elden_ring_sound.mp3"],
+      "resources": ["assets/email_sent_yellow.png", "assets/email_sent_blue.png", "assets/email_sent_red.png","assets/elden_ring_sound.mp3"],
       "matches": [
         "https://mail.google.com/*",
         "https://outlook.office.com/*"
