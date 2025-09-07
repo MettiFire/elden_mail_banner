@@ -1,84 +1,22 @@
-/*// in modo che non si blocchi quando cambia scena
-const bannerImgUrl = chrome.runtime.getURL("assets/email_sent_yellow.png");
+console.log("Elden Mail Banner content.js loaded!");
+
+// pre-load the sound file
 const soundUrl = chrome.runtime.getURL("assets/elden_ring_sound.mp3");
 
-
-function showEldenRingBanner() {
-    console.log("Banner function called");
-
-    chrome.storage.sync.get(["soundEnabled", "bannerColor"], (prefs) => {
-        const bannerColor = prefs.bannerColor || "yellow";
-        const soundEnabled = prefs.soundEnabled !== false;
-
-        const banner = document.createElement('div');
-        banner.id = 'elden-ring-banner';
-        banner.innerHTML = `<img src="${chrome.runtime.getURL(`assets/email_sent_${bannerColor}.png`)}" alt="Email Sent">`;
-        document.body.appendChild(banner);
-        console.log("Banner appended");
-
-        if (soundEnabled) {
-            const audio = new Audio(chrome.runtime.getURL('assets/elden_ring_sound.mp3'));
-            audio.volume = 0.35;
-            audio.play().catch(err => console.error("Errore nel suono:", err));
-        }
-
-        setTimeout(() => banner.classList.add('show'), 50);
-        setTimeout(() => {
-            banner.classList.remove('show');
-            setTimeout(() => banner.remove(), 500);
-        }, 3000);
-    });
-}
-
-
-
-
-// Gmail observer
-const gmailObserver = new MutationObserver(() => {
-    const sendButtons = document.querySelectorAll('[aria-label^="Invia"], [data-tooltip^="Invia"]');
-    sendButtons.forEach(btn => {
-        if (!btn.dataset.eldenRingAttached) {
-            btn.addEventListener('click', () => {
-                console.log("Gmail send button clicked");
-                setTimeout(showEldenRingBanner, 500);
-            });
-            btn.dataset.eldenRingAttached = "true";
-        }
-    });
-});
-gmailObserver.observe(document.body, { childList: true, subtree: true });
-
-// Outlook observer
-const outlookObserver = new MutationObserver(() => {
-    const sendBtn = document.querySelector('button[title="Invia"]');
-    if (sendBtn && !sendBtn.dataset.eldenRingAttached) {
-        sendBtn.addEventListener('click', () => {
-            console.log("Outlook send button clicked");
-            setTimeout(showEldenRingBanner, 500);
-        });
-        sendBtn.dataset.eldenRingAttached = "true";
-    }
-});
-outlookObserver.observe(document.body, { childList: true, subtree: true });
-*/
-
-// Percorsi pre-caricati
-const soundUrl = chrome.runtime.getURL("assets/elden_ring_sound.mp3");
-
-// Lista di parole chiave "Invia" in varie lingue
+// dictionary of "Send" keywords in various languages
 const keywords = ["Invia","Send","傳送","发送","送信","보내기","Enviar","Senden","Envoyer","Отправить","إرسال","ส่ง","Skicka"];
 
-// Variabili per le impostazioni
+// default settings
 let soundEnabled = true;
 let bannerColor = "yellow";
 
-// Carica le impostazioni all'avvio
+// load settings on startup
 chrome.storage.sync.get(["soundEnabled", "bannerColor"], (prefs) => {
     soundEnabled = prefs.soundEnabled !== false;
     bannerColor = prefs.bannerColor || "yellow";
 });
 
-// Aggiorna in tempo reale se cambiano dal popup
+// update in real-time the settings if changed from the popup
 chrome.storage.onChanged.addListener((changes) => {
     if (changes.soundEnabled) {
         soundEnabled = changes.soundEnabled.newValue !== false;
@@ -111,63 +49,54 @@ function showEldenRingBanner() {
     }, 3000);
 }
 
-/*
-// Gmail observer
+// gmail observer
 const gmailObserver = new MutationObserver(() => {
-    const sendButtons = document.querySelectorAll('[aria-label^="Invia"], [data-tooltip^="Invia"]');
-    sendButtons.forEach(btn => {
-        if (!btn.dataset.eldenRingAttached) {
-            btn.addEventListener('click', () => {
-                console.log("Gmail send button clicked");
-                setTimeout(showEldenRingBanner, 500);
-            });
-            btn.dataset.eldenRingAttached = "true";
+    document.querySelectorAll('div[role="button"], button[role="button"]').forEach(btn => {
+        // take aria-label, data-tooltip and innerText
+        const label = btn.getAttribute("aria-label") || "";
+        const tooltip = btn.getAttribute("data-tooltip") || "";
+        const text = (btn.innerText || "").trim();
+
+        // match: if label, tooltip or text start with a keyword
+        const isSendBtn = keywords.some(k =>
+        label.trim().toLowerCase().startsWith(k.toLowerCase()) ||
+        tooltip.trim().toLowerCase().startsWith(k.toLowerCase()) ||
+        text.toLowerCase().startsWith(k.toLowerCase())
+        );
+
+        if (isSendBtn && !btn.dataset.eldenRingAttached) {
+        btn.addEventListener("click", () => {
+            console.log("Gmail send button clicked");
+            setTimeout(showEldenRingBanner, 500);
+        });
+        btn.dataset.eldenRingAttached = "true";
         }
     });
 });
 gmailObserver.observe(document.body, { childList: true, subtree: true });
 
-// Outlook observer
+// outlook observer
 const outlookObserver = new MutationObserver(() => {
-    const sendBtn = document.querySelector('button[title="Invia"]');
-    if (sendBtn && !sendBtn.dataset.eldenRingAttached) {
-        sendBtn.addEventListener('click', () => {
+    document.querySelectorAll('button, div[role="button"]').forEach(btn => {
+        // take aria-label, data-tooltip and innerText
+        const title = btn.getAttribute("title") || "";
+        const label = btn.getAttribute("aria-label") || "";
+        const text = (btn.innerText || "").trim();
+
+        // match: if label, tooltip or text start with a keyword
+        const isSendBtn = keywords.some(k =>
+        title.trim().toLowerCase().startsWith(k.toLowerCase()) ||
+        label.trim().toLowerCase().startsWith(k.toLowerCase()) ||
+        text.toLowerCase().startsWith(k.toLowerCase())
+        );
+
+        if (isSendBtn && !btn.dataset.eldenRingAttached) {
+        btn.addEventListener('click', () => {
             console.log("Outlook send button clicked");
             setTimeout(showEldenRingBanner, 500);
         });
-        sendBtn.dataset.eldenRingAttached = "true";
-    }
-});
-outlookObserver.observe(document.body, { childList: true, subtree: true }); */
-
-// Gmail observer
-const gmailObserver = new MutationObserver(() => {
-    keywords.forEach(k => {
-        document.querySelectorAll(`[aria-label="${k}"], [data-tooltip="${k}"]`).forEach(btn => {
-            if (!btn.dataset.eldenRingAttached) {
-                btn.addEventListener('click', () => {
-                    console.log("Gmail send button clicked");
-                    setTimeout(showEldenRingBanner, 500);
-                });
-                btn.dataset.eldenRingAttached = "true";
-            }
-        });
-    });
-});
-gmailObserver.observe(document.body, { childList: true, subtree: true });
-
-// Outlook observer
-const outlookObserver = new MutationObserver(() => {
-    keywords.forEach(k => {
-        document.querySelectorAll(`button[title="${k}"]`).forEach(btn => {
-            if (!btn.dataset.eldenRingAttached) {
-                btn.addEventListener('click', () => {
-                    console.log("Outlook send button clicked");
-                    setTimeout(showEldenRingBanner, 500);
-                });
-                btn.dataset.eldenRingAttached = "true";
-            }
-        });
+        btn.dataset.eldenRingAttached = "true";
+        }
     });
 });
 outlookObserver.observe(document.body, { childList: true, subtree: true });
