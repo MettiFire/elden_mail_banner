@@ -93,6 +93,7 @@ Elden Email is designed to work not only on Chrome, but also on the most popular
 ### 🟧 Firefox
 - **Compatibility:** Firefox uses the “WebExtensions” system, very similar to Chrome’s.
 - **How to Install:**  
+> easier steps will come!! just need to bring everything to mozilla!
   - Visit [Firefox Add-ons](https://addons.mozilla.org).
   - Search for “Elden Email” and install from the store.
   - If you are publishing, note:
