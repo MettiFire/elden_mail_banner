@@ -20,7 +20,7 @@ When you hit **Send** in Gmail or Outlook Web, a dramatic banner appears with so
 ## 🔧 Installation
 
 > ⚠️ **Recommended:**  
-> You can easily install Elden Email directly from the [Chrome Web Store](https://chromewebstore.google.com/) or other browser extension stores.  [EDIT: RIGHT NOW IT'S STILL UNDER REVIEW, YOU'LL FIND IT AS SOON AS IT'S PUBLISHED]
+> You can easily install Elden Email directly from the [Chrome Web Store](https://chromewebstore.google.com/detail/elden-email/bjaildeadgclghcjhocdbginfpjihmgm) or other browser extension stores. 
 > This way, you’ll automatically receive updates and bug fixes.
 
 > **Manual installation (not recommended):**  
