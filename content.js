@@ -1,3 +1,4 @@
+
 console.log("Elden Mail Banner content.js loaded!");
 
 // pre-load the sound file
@@ -25,6 +26,7 @@ chrome.storage.onChanged.addListener((changes) => {
         bannerColor = changes.bannerColor.newValue || "yellow";
     }
 });
+
 
 function showEldenRingBanner() {
     console.log("Banner function called");
