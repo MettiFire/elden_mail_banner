@@ -25,55 +25,35 @@ document.addEventListener("DOMContentLoaded", () => {
       chrome.storage.sync.set({ bannerColor: opt.dataset.color });
     });
   });
-});*/
-
-document.addEventListener("DOMContentLoaded", () => {
+});*/document.addEventListener("DOMContentLoaded", async () => {
   const soundToggle = document.getElementById("soundToggle");
   const colorOptions = document.querySelectorAll(".color-option");
 
+  // Polyfill
   const storage = (typeof browser !== "undefined") ? browser.storage : chrome.storage;
 
   const DEFAULT_SOUND = true;
   const DEFAULT_COLOR = "yellow";
 
-  const applyPrefs = (prefs) => {
-    soundToggle.checked = prefs.soundEnabled;
-    colorOptions.forEach(opt => {
-      opt.classList.toggle("selected", opt.dataset.color === prefs.bannerColor);
-    });
+  // Legge le preferenze salvate
+  const res = await storage.sync.get(["soundEnabled", "bannerColor"]);
+  const prefs = {
+    soundEnabled: res.soundEnabled !== undefined ? res.soundEnabled : DEFAULT_SOUND,
+    bannerColor: res.bannerColor || DEFAULT_COLOR
   };
 
-  const getPrefs = async () => {
-    let prefs;
+  // Applica le preferenze al popup
+  soundToggle.checked = prefs.soundEnabled;
+  colorOptions.forEach(opt => {
+    opt.classList.toggle("selected", opt.dataset.color === prefs.bannerColor);
+  });
 
-    if (storage.get.length === 1) {
-      // Chrome
-      storage.sync.get(["soundEnabled", "bannerColor"], (res) => {
-        prefs = {
-          soundEnabled: res.soundEnabled !== undefined ? res.soundEnabled : DEFAULT_SOUND,
-          bannerColor: res.bannerColor || DEFAULT_COLOR
-        };
-        applyPrefs(prefs);
-      });
-    } else {
-      // Firefox
-      const res = await storage.sync.get(["soundEnabled", "bannerColor"]);
-      prefs = {
-        soundEnabled: res.soundEnabled !== undefined ? res.soundEnabled : DEFAULT_SOUND,
-        bannerColor: res.bannerColor || DEFAULT_COLOR
-      };
-      applyPrefs(prefs);
-    }
-  };
-
-  getPrefs();
-
-  // Salvataggio toggle suono
+  // Salvataggio toggle
   soundToggle.addEventListener("change", () => {
     storage.sync.set({ soundEnabled: soundToggle.checked });
   });
 
-  // Salvataggio scelta colore
+  // Salvataggio colore
   colorOptions.forEach(opt => {
     opt.addEventListener("click", () => {
       colorOptions.forEach(c => c.classList.remove("selected"));
