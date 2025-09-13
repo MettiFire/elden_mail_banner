@@ -225,4 +225,5 @@ const yahooObserver = new MutationObserver(() => {
       }
   });
 });
+
 yahooObserver.observe(document.body, { childList: true, subtree: true });
