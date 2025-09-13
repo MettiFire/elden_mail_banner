@@ -31,14 +31,14 @@ document.addEventListener("DOMContentLoaded", () => {
   const soundToggle = document.getElementById("soundToggle");
   const colorOptions = document.querySelectorAll(".color-option");
 
-  // Polyfill per compatibilità
+  // Polyfill per compatibilità Firefox/Chrome
   const storage = (typeof browser !== "undefined") ? browser.storage : chrome.storage;
 
   const DEFAULT_SOUND = true;
   const DEFAULT_COLOR = "yellow";
 
+  // Applica le preferenze al popup
   const applyPrefs = (prefs) => {
-    // Imposta toggle e colori
     soundToggle.checked = prefs.soundEnabled;
     const selectedColor = prefs.bannerColor;
     colorOptions.forEach(opt => {
@@ -46,40 +46,38 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   };
 
-  // Carica preferenze e imposta default se mancanti
+  // Carica preferenze e salva default se mancanti
   const getPrefs = async () => {
-    let prefs;
     if (storage.get.length === 1) {
-      // Chrome
+      // Chrome callback
       storage.sync.get(["soundEnabled", "bannerColor"], (res) => {
-        prefs = {
+        const toSave = {
           soundEnabled: res.soundEnabled !== undefined ? res.soundEnabled : DEFAULT_SOUND,
           bannerColor: res.bannerColor || DEFAULT_COLOR
         };
-        applyPrefs(prefs);
-        // Salva default se mancavano
-        storage.sync.set(prefs);
+        applyPrefs(toSave);
+        storage.sync.set(toSave);
       });
     } else {
-      // Firefox
-      prefs = await storage.sync.get(["soundEnabled", "bannerColor"]);
-      prefs = {
-        soundEnabled: prefs.soundEnabled !== undefined ? prefs.soundEnabled : DEFAULT_SOUND,
-        bannerColor: prefs.bannerColor || DEFAULT_COLOR
+      // Firefox Promise
+      const res = await storage.sync.get(["soundEnabled", "bannerColor"]);
+      const toSave = {
+        soundEnabled: res.soundEnabled !== undefined ? res.soundEnabled : DEFAULT_SOUND,
+        bannerColor: res.bannerColor || DEFAULT_COLOR
       };
-      applyPrefs(prefs);
-      await storage.sync.set(prefs);
+      applyPrefs(toSave);
+      await storage.sync.set(toSave);
     }
   };
 
   getPrefs();
 
-  // Salvataggio toggle
+  // Salvataggio toggle suono
   soundToggle.addEventListener("change", () => {
     storage.sync.set({ soundEnabled: soundToggle.checked });
   });
 
-  // Salvataggio colore
+  // Salvataggio scelta colore
   colorOptions.forEach(opt => {
     opt.addEventListener("click", () => {
       colorOptions.forEach(c => c.classList.remove("selected"));
