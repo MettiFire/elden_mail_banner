@@ -81,7 +81,7 @@ As promised, now the extension supports the following languages for the Send but
 - 🇹🇭 Thai (`ส่ง`)
 - 🇸🇪 Swedish (`Skicka`)
 
-If your language isn’t listed, don't hesitate to contact me!
+If your language isn’t listed, don't hesitate to contact me, I will add it in the next update!
 
 ---
 
@@ -93,19 +93,19 @@ Elden Email is designed to work not only on Chrome, but also on the most popular
 - **Recommended:** Search for “Elden Email” on the Chrome Web Store and install in one click.
 - **Manual:** See instructions above, but the official store version is preferred for automatic updates.
 
-### 🟦 Edge
+### 🌀 Edge
 - **Compatibility:** Microsoft Edge supports Chrome extensions almost 100%.
 - **How to Install:**  
   - Visit [Microsoft Edge Add-ons](https://microsoftedge.microsoft.com/addons).
   - Search for “Elden Email” and install directly from the store.
 
-### 🟥 Opera
+### 🔴 Opera
 - **Compatibility:** Opera supports Manifest V2/V3 extensions.
 - **How to Install:**  
   - Go to [Opera Add-ons](https://addons.opera.com).
   - Search for “Elden Email” and install from the store.
 
-### 🟧 Firefox
+### 🦊 Firefox
 - **Compatibility:** Firefox uses the “WebExtensions” system, very similar to Chrome’s.
 - **How to Install:**  
 > easier steps will come!! just need to bring everything to mozilla!
@@ -117,12 +117,14 @@ Elden Email is designed to work not only on Chrome, but also on the most popular
     - Some functions may need a [webextension-polyfill](https://github.com/mozilla/webextension-polyfill).
     - If you get errors, consult the [MDN migration guide](https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/Chrome_incompatibilities).
 
-### 🟩 Brave, Vivaldi, and other Chromium Browsers
+### 🦁 Brave, Vivaldi, and other Chromium Browsers
 - **Compatibility:** Full support for Chrome extensions.
 - **How to Install:**  
   - Search for “Elden Email” on the Chrome Web Store and install directly.
   - No manual installation required.
 
+### 🧭 Safari 
+> support for safari is coming!
 
 > **Note:**  
 > For all supported browsers, once the extension is published in their respective stores, you should always install it from the official store to receive updates and the best experience.  
