@@ -214,16 +214,27 @@ outlookObserver.observe(document.body, { childList: true, subtree: true });
 
 
 // yahoo mail observer
-const yahooObserver = new MutationObserver(() => {
-  document.querySelectorAll('button[data-test-id="compose-send-button"]').forEach(btn => {
+function attachYahooObserver(frameDoc) {
+  const yahooObserver = new MutationObserver(() => {
+    frameDoc.querySelectorAll('button[data-test-id="compose-send-button"]').forEach(btn => {
       if (!btn.dataset.eldenRingAttached) {
-          btn.addEventListener("click", () => {
-              console.log("Yahoo Mail send button clicked");
-              setTimeout(showEldenRingBanner, 500); // banner delay
-          });
-          btn.dataset.eldenRingAttached = "true"; // mark as attached
+        btn.addEventListener("click", () => {
+          console.log("Yahoo Mail send button clicked");
+          setTimeout(showEldenRingBanner, 500);
+        });
+        btn.dataset.eldenRingAttached = "true";
       }
+    });
   });
-});
+  yahooObserver.observe(frameDoc.body, { childList: true, subtree: true });
+}
 
-yahooObserver.observe(document.body, { childList: true, subtree: true });
+// cerca tutti gli iframe
+document.querySelectorAll('iframe').forEach(iframe => {
+  try {
+    const frameDoc = iframe.contentDocument || iframe.contentWindow.document;
+    if (frameDoc) attachYahooObserver(frameDoc);
+  } catch(e) {
+    // alcuni iframe sono cross-origin, non puoi accedere: ignora
+  }
+});
