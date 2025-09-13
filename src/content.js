@@ -1,4 +1,4 @@
-
+/*
 console.log("Elden Mail Banner content.js loaded!");
 
 // pre-load the sound file
@@ -50,6 +50,85 @@ function showEldenRingBanner() {
         setTimeout(() => banner.remove(), 500);
     }, 3000);
 }
+*/
+
+console.log("Elden Mail Banner content.js loaded!");
+
+// Polyfill per compatibilità
+const storage = (typeof browser !== "undefined") ? browser.storage : chrome.storage;
+
+// pre-load sound
+const soundUrl = chrome.runtime.getURL("assets/elden_ring_sound.mp3");
+
+// Send keywords
+const keywords = ["Invia","Send","傳送","发送","送信","보내기","Enviar","Senden","Envoyer","Отправить","إرسال","ส่ง","Skicka"];
+
+// default settings
+let soundEnabled = true;
+let bannerColor = "yellow";
+
+// load settings and set defaults if missing
+const loadPrefs = async () => {
+  let prefs;
+  if (storage.get.length === 1) {
+    // Chrome callback
+    storage.sync.get(["soundEnabled", "bannerColor"], (res) => {
+      prefs = {
+        soundEnabled: res.soundEnabled !== undefined ? res.soundEnabled : true,
+        bannerColor: res.bannerColor || "yellow"
+      };
+      soundEnabled = prefs.soundEnabled;
+      bannerColor = prefs.bannerColor;
+      storage.sync.set(prefs); // salva default se mancanti
+    });
+  } else {
+    // Firefox Promise
+    prefs = await storage.sync.get(["soundEnabled", "bannerColor"]);
+    prefs = {
+      soundEnabled: prefs.soundEnabled !== undefined ? prefs.soundEnabled : true,
+      bannerColor: prefs.bannerColor || "yellow"
+    };
+    soundEnabled = prefs.soundEnabled;
+    bannerColor = prefs.bannerColor;
+    await storage.sync.set(prefs);
+  }
+};
+loadPrefs();
+
+// aggiornamento real-time
+if (storage.onChanged) {
+  storage.onChanged.addListener((changes) => {
+    if (changes.soundEnabled) soundEnabled = changes.soundEnabled.newValue;
+    if (changes.bannerColor) bannerColor = changes.bannerColor.newValue;
+  });
+}
+
+// funzione banner
+function showEldenRingBanner() {
+  const banner = document.createElement('div');
+  banner.id = 'elden-ring-banner';
+  const imgPath = chrome.runtime.getURL(`assets/email_sent_${bannerColor}.png`);
+  banner.innerHTML = `<img src="${imgPath}" alt="Email Sent">`;
+  document.body.appendChild(banner);
+
+  if (soundEnabled) {
+    const audio = new Audio(soundUrl);
+    audio.volume = 0.35;
+    audio.play().catch(err => console.error("Errore nel suono:", err));
+  }
+
+  setTimeout(() => banner.classList.add('show'), 50);
+  setTimeout(() => {
+    banner.classList.remove('show');
+    setTimeout(() => banner.remove(), 500);
+  }, 3000);
+}
+
+
+
+
+
+
 
 // gmail observer
 const gmailObserver = new MutationObserver(() => {
