@@ -54,9 +54,9 @@ When you hit **Send** in Gmail or Outlook Web, a dramatic banner appears with so
 
 ## 📂 Project Structure
 ```
-├── manifest_chrome.json     # Manifest MV3 per Chrome/Edge/Brave/Opera/Vivaldi
-├── manifest_firefox.json    # Manifest MV2 per Firefox
-├── package.json             # Script di build e gestione pacchetti
+├── manifest_chrome.json     # Manifest MV3 for Chrome/Edge/Brave/Opera/Vivaldi
+├── manifest_firefox.json    # Manifest MV2 for Firefox
+├── package.json             # Build scripts and package management
 ├── LICENSE                  # MIT License
 ├── README.md                # Rules and info
 ├── src/
