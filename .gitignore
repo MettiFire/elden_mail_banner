@@ -1,0 +1,58 @@
+# macOS
+.DS_Store
+
+# Xcode
+*.xcuserstate
+*.xcworkspace
+*.xcodeproj
+!*.xcworkspace/contents.xcworkspacedata
+
+# Swift Package Manager
+.build/
+Package.resolved
+
+# Carthage
+Carthage/Build/
+
+# Cocoapods
+Pods/
+Podfile.lock
+
+# Fastlane
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots
+fastlane/test_output
+
+# Playground
+timeline.xctimeline
+playground.xcworkspace
+
+# User-specific
+*.swp
+*.swo
+*.tmp
+*.bak
+
+# Derived Data and build artifacts
+DerivedData/
+build/
+*.ipa
+*.app
+*.dSYM
+
+# Logs
+*.log
+
+# Other system files
+Thumbs.db
+ehthumbs.db
+Icon?
+.idea/
+*.iml
+
+# Node modules (if using JS tools)
+node_modules/
+
+# VSCode
+.vscode/
