@@ -54,15 +54,19 @@ When you hit **Send** in Gmail or Outlook Web, a dramatic banner appears with so
 
 ## 📂 Project Structure
 ```
-├── manifest.json       # Extension manifest<br>
-├── content.js          # Core script (banner logic)<br>
-├── style.css           # Styles for banner<br>
-├── popup.html          # Pop up <br>
-├── popup.css           # Pop up style <br>
-├── popup.js            # Pop up logic <br>
-├── privacy_policy.md   # Privacy <br>
-├── README.md           # Rules and info <br>
-└── assets/             # Icons and sound<br> 
+├── manifest_chrome.json     # Manifest MV3 per Chrome/Edge/Brave/Opera/Vivaldi
+├── manifest_firefox.json    # Manifest MV2 per Firefox
+├── package.json             # Script di build e gestione pacchetti
+├── LICENSE                  # MIT License
+├── README.md                # Rules and info
+├── src/
+│   ├── content.js           # Core script (banner logic)
+│   ├── style.css            # Styles for banner
+│   ├── popup.html           # Pop up
+│   ├── popup.css            # Pop up style
+│   ├── popup.js             # Pop up logic
+│   ├── privacy_policy.md    # Privacy
+│   └── assets/              # Icons and sound
 ```
 ---
 
