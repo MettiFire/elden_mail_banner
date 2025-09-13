@@ -211,3 +211,18 @@ const outlookObserver = new MutationObserver(() => {
   });
 });
 outlookObserver.observe(document.body, { childList: true, subtree: true });
+
+
+// yahoo mail observer
+const yahooObserver = new MutationObserver(() => {
+    document.querySelectorAll('button[data-test-id="compose-send-button"]').forEach(btn => {
+        if (!btn.dataset.eldenRingAttached) {
+            btn.addEventListener("click", () => {
+                console.log("Yahoo Mail send button clicked");
+                setTimeout(showEldenRingBanner, 500); // banner delay
+            });
+            btn.dataset.eldenRingAttached = "true"; // mark as attached
+        }
+    });
+});
+yahooObserver.observe(document.body, { childList: true, subtree: true });
