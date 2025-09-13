@@ -108,20 +108,20 @@ outlookObserver.observe(document.body, { childList: true, subtree: true });
 
 console.log("Elden Mail Banner content.js loaded!");
 
-// Polyfill per compatibilità
+// polyfill for Firefox compatibility
 const storage = (typeof browser !== "undefined") ? browser.storage : chrome.storage;
 
-// Pre-load sound file
+// pre-load sound file
 const soundUrl = chrome.runtime.getURL("assets/elden_ring_sound.mp3");
 
-// Keywords dei pulsanti “Send”
+// keywords for "Send" in various languages
 const keywords = ["Invia","Send","傳送","发送","送信","보내기","Enviar","Senden","Envoyer","Отправить","إرسال","ส่ง","Skicka"];
 
-// Valori di default
+// default settings
 let soundEnabled = true;
 let bannerColor = "yellow";
 
-// Carica preferenze senza sovrascrivere valori già salvati
+// load preferences without rewriting saved preferences 
 const loadPrefs = async () => {
   if (storage.get.length === 1) {
     // Chrome callback
@@ -130,7 +130,7 @@ const loadPrefs = async () => {
       bannerColor = res.bannerColor || "yellow";
     });
   } else {
-    // Firefox Promise
+    // Firefox promise
     const res = await storage.sync.get(["soundEnabled", "bannerColor"]);
     soundEnabled = res.soundEnabled !== undefined ? res.soundEnabled : true;
     bannerColor = res.bannerColor || "yellow";
@@ -138,7 +138,7 @@ const loadPrefs = async () => {
 };
 loadPrefs();
 
-// Aggiornamento in tempo reale
+// real-time updates
 if (storage.onChanged) {
   storage.onChanged.addListener((changes) => {
     if (changes.soundEnabled) soundEnabled = changes.soundEnabled.newValue;
@@ -146,7 +146,6 @@ if (storage.onChanged) {
   });
 }
 
-// Funzione per mostrare il banner
 function showEldenRingBanner() {
   const banner = document.createElement('div');
   banner.id = 'elden-ring-banner';
@@ -167,7 +166,7 @@ function showEldenRingBanner() {
   }, 3000);
 }
 
-// Osservatore Gmail
+// gmail observer
 const gmailObserver = new MutationObserver(() => {
   document.querySelectorAll('div[role="button"], button[role="button"]').forEach(btn => {
     const label = btn.getAttribute("aria-label") || "";
@@ -190,7 +189,7 @@ const gmailObserver = new MutationObserver(() => {
 });
 gmailObserver.observe(document.body, { childList: true, subtree: true });
 
-// Osservatore Outlook
+// outlook observer
 const outlookObserver = new MutationObserver(() => {
   document.querySelectorAll('button, div[role="button"]').forEach(btn => {
     const title = btn.getAttribute("title") || "";
