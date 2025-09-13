@@ -1,0 +1,33 @@
+{
+  "manifest_version": 2,
+  "name": "Elden Email",
+  "version": "1.1.1",
+  "description": "Shows an Elden Ring banner when you send an email",
+  "permissions": ["storage"],
+  "browser_action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "48": "assets/icon.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://mail.google.com/*",
+        "https://outlook.office.com/*"
+      ],
+      "js": ["content.js"],
+      "css": ["style.css"]
+    }
+  ],
+  "icons": {
+    "48": "assets/icon.png"
+  },
+  "web_accessible_resources": [
+    "assets/email_sent_yellow.png",
+    "assets/email_sent_blue.png",
+    "assets/email_sent_red.png",
+    "assets/elden_ring_sound.mp3",
+    "assets/Matinia.otf"
+  ]
+}
