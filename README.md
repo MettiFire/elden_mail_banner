@@ -53,6 +53,7 @@ When you hit **Send** in Gmail or Outlook Web, a dramatic banner appears with so
 ---
 
 ## 📂 Project Structure
+```
 ├── manifest.json       # Extension manifest<br>
 ├── content.js          # Core script (banner logic)<br>
 ├── style.css           # Styles for banner<br>
@@ -62,7 +63,7 @@ When you hit **Send** in Gmail or Outlook Web, a dramatic banner appears with so
 ├── privacy_policy.md   # Privacy <br>
 ├── README.md           # Rules and info <br>
 └── assets/             # Icons and sound<br> 
-
+```
 ---
 
 ## 🌍 Language Support
