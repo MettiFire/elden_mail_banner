@@ -26,43 +26,47 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });*/
-document.addEventListener("DOMContentLoaded", () => {
-  // Compatibilità tra browser
-  const storage = (typeof browser !== "undefined") ? browser.storage : chrome.storage;
 
+
+// Polyfill per compatibilità Firefox/Chrome
+const storage = (typeof browser !== "undefined") ? browser.storage : chrome.storage;
+
+// Attendi che il DOM sia pronto
+document.addEventListener("DOMContentLoaded", () => {
   const soundToggle = document.getElementById("soundToggle");
   const colorOptions = document.querySelectorAll(".color-option");
 
-  // Carica le preferenze
-  const loadPrefs = () => {
-    // Firefox: storage.sync.get restituisce una Promise
-    // Chrome: restituisce un callback
-    if (storage.sync.get.length === 1) {
-      // Promise (Firefox)
-      storage.sync.get(["soundEnabled", "bannerColor"]).then((prefs) => {
-        setupUI(prefs);
-      });
+  // Carica preferenze
+  const getPrefs = async () => {
+    let prefs;
+    if (storage.get.length === 1) {
+      // Chrome callback
+      storage.sync.get(["soundEnabled", "bannerColor"], (res) => applyPrefs(res));
     } else {
-      // Callback (Chrome)
-      storage.sync.get(["soundEnabled", "bannerColor"], (prefs) => {
-        setupUI(prefs);
-      });
+      // Firefox Promise
+      prefs = await storage.sync.get(["soundEnabled", "bannerColor"]);
+      applyPrefs(prefs);
     }
   };
 
-  const setupUI = (prefs) => {
-    soundToggle.checked = prefs.soundEnabled !== false;
+  const applyPrefs = (prefs) => {
+    // Toggle suono
+    soundToggle.checked = prefs.soundEnabled !== false; // default true
+    // Banner colore
     const selectedColor = prefs.bannerColor || "yellow";
     colorOptions.forEach(opt => {
       opt.classList.toggle("selected", opt.dataset.color === selectedColor);
     });
   };
 
-  // Salva le preferenze
+  getPrefs();
+
+  // Salva toggle suono
   soundToggle.addEventListener("change", () => {
     storage.sync.set({ soundEnabled: soundToggle.checked });
   });
 
+  // Salva scelta colore
   colorOptions.forEach(opt => {
     opt.addEventListener("click", () => {
       colorOptions.forEach(c => c.classList.remove("selected"));
@@ -70,6 +74,4 @@ document.addEventListener("DOMContentLoaded", () => {
       storage.sync.set({ bannerColor: opt.dataset.color });
     });
   });
-
-  loadPrefs();
 });
