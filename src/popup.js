@@ -31,42 +31,38 @@ document.addEventListener("DOMContentLoaded", () => {
   const soundToggle = document.getElementById("soundToggle");
   const colorOptions = document.querySelectorAll(".color-option");
 
-  // Polyfill per compatibilità Firefox/Chrome
   const storage = (typeof browser !== "undefined") ? browser.storage : chrome.storage;
 
   const DEFAULT_SOUND = true;
   const DEFAULT_COLOR = "yellow";
 
-  // Applica le preferenze al popup
   const applyPrefs = (prefs) => {
     soundToggle.checked = prefs.soundEnabled;
-    const selectedColor = prefs.bannerColor;
     colorOptions.forEach(opt => {
-      opt.classList.toggle("selected", opt.dataset.color === selectedColor);
+      opt.classList.toggle("selected", opt.dataset.color === prefs.bannerColor);
     });
   };
 
-  // Carica preferenze e salva default se mancanti
   const getPrefs = async () => {
+    let prefs;
+
     if (storage.get.length === 1) {
-      // Chrome callback
+      // Chrome
       storage.sync.get(["soundEnabled", "bannerColor"], (res) => {
-        const toSave = {
+        prefs = {
           soundEnabled: res.soundEnabled !== undefined ? res.soundEnabled : DEFAULT_SOUND,
           bannerColor: res.bannerColor || DEFAULT_COLOR
         };
-        applyPrefs(toSave);
-        storage.sync.set(toSave);
+        applyPrefs(prefs);
       });
     } else {
-      // Firefox Promise
+      // Firefox
       const res = await storage.sync.get(["soundEnabled", "bannerColor"]);
-      const toSave = {
+      prefs = {
         soundEnabled: res.soundEnabled !== undefined ? res.soundEnabled : DEFAULT_SOUND,
         bannerColor: res.bannerColor || DEFAULT_COLOR
       };
-      applyPrefs(toSave);
-      await storage.sync.set(toSave);
+      applyPrefs(prefs);
     }
   };
 
