@@ -25,7 +25,10 @@ document.addEventListener("DOMContentLoaded", () => {
       chrome.storage.sync.set({ bannerColor: opt.dataset.color });
     });
   });
-});*/document.addEventListener("DOMContentLoaded", async () => {
+});*/
+
+/* VERSIONE DUE CHE FUNZIONAVA SU CHROME TOTALMENTE E SOLO PARZIALMENTE SU FIREFOX
+document.addEventListener("DOMContentLoaded", async () => {
   const soundToggle = document.getElementById("soundToggle");
   const colorOptions = document.querySelectorAll(".color-option");
 
@@ -62,3 +65,60 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+*/
+
+
+document.addEventListener("DOMContentLoaded", async () => {
+  const soundToggle = document.getElementById("soundToggle");
+  const colorOptions = document.querySelectorAll(".color-option");
+
+  // Polyfill per Chrome/Firefox
+  const storage = (typeof browser !== "undefined") ? browser.storage : chrome.storage;
+
+  const DEFAULT_SOUND = true;
+  const DEFAULT_COLOR = "yellow";
+
+  // Funzione per applicare le preferenze al popup
+  const applyPrefs = (prefs) => {
+    soundToggle.checked = prefs.soundEnabled;
+    colorOptions.forEach(opt => {
+      opt.classList.toggle("selected", opt.dataset.color === prefs.bannerColor);
+    });
+  };
+
+  // Legge le preferenze salvate
+  let prefs;
+  if (storage.get.length === 1) {
+    // Chrome callback
+    storage.sync.get(["soundEnabled", "bannerColor"], (res) => {
+      prefs = {
+        soundEnabled: res.soundEnabled !== undefined ? res.soundEnabled : DEFAULT_SOUND,
+        bannerColor: res.bannerColor || DEFAULT_COLOR
+      };
+      applyPrefs(prefs);
+    });
+  } else {
+    // Firefox Promise
+    const res = await storage.sync.get(["soundEnabled", "bannerColor"]);
+    prefs = {
+      soundEnabled: res.soundEnabled !== undefined ? res.soundEnabled : DEFAULT_SOUND,
+      bannerColor: res.bannerColor || DEFAULT_COLOR
+    };
+    applyPrefs(prefs);
+  }
+
+  // Salvataggio toggle suono
+  soundToggle.addEventListener("change", () => {
+    storage.sync.set({ soundEnabled: soundToggle.checked });
+  });
+
+  // Salvataggio scelta colore
+  colorOptions.forEach(opt => {
+    opt.addEventListener("click", () => {
+      colorOptions.forEach(c => c.classList.remove("selected"));
+      opt.classList.add("selected");
+      storage.sync.set({ bannerColor: opt.dataset.color });
+    });
+  });
+});
+
