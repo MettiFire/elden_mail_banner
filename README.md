@@ -113,16 +113,16 @@ Elden Email is designed to work not only on Chrome, but also on the most popular
 - **Compatibility:** Firefox uses the “WebExtensions” system, very similar to Chrome’s.  
 
 - **How to Install from the Store:**  
-  1. Visit [Firefox Add-ons](https://addons.mozilla.org).  
-  2. Search for “Elden Email” and install it directly from the store.  
+  - Visit [Firefox Add-ons](https://addons.mozilla.org).  
+  - Search for “Elden Email” and install it directly from the store.  
 
 - **How to Test or Build Locally:**  
-  1. Go to the `src/` folder of the project (this contains all source files).  
-  2. Copy all files into a new folder `dist/firefox/`.  
-  3. Rename `manifest_firefox.json` to `manifest.json`.  
-  4. Create a ZIP of **all files inside** `dist/firefox/` (do **not** zip the `firefox/` folder itself).  
-  5. Open Firefox → `about:debugging` → “This Firefox” → “Load Temporary Add-on” → select the `manifest.json` inside your ZIP or folder.  
-  6. Test the extension: the banner should appear when sending an email; the popup may not save preferences yet.  
+  - Go to the `src/` folder of the project (this contains all source files).  
+  - Copy all files into a new folder `dist/firefox/`.  
+  - Rename `manifest_firefox.json` to `manifest.json`.  
+  - Create a ZIP of **all files inside** `dist/firefox/` (do **not** zip the `firefox/` folder itself).  
+  - Open Firefox → `about:debugging` → “This Firefox” → “Load Temporary Add-on” → select the `manifest.json` inside your ZIP or folder.  
+  - Test the extension: the banner should appear when sending an email; the popup may not save preferences yet.  
 
 - **Publishing Notes:**  
   - Some APIs differ (`chrome.*` → `browser.*`).  
