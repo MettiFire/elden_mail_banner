@@ -4,6 +4,21 @@ When you hit **Send** in Gmail or Outlook Web, a dramatic banner appears with so
 
 ---
 
+## Table of Contents
+
+- [📜 Email Sent - Elden Ring Extension](#-email-sent---elden-ring-extension)
+- [🚀 Features](#-features)
+- [🔧 Installation](#-installation)
+- [📂 Project Structure](#-project-structure)
+- [🌍 Language Support](#-language-support)
+- [🖥️ Browser Compatibility & Installation](#️-browser-compatibility--installation)
+- [⚠️ Known Issues](#️-known-issues)
+- [🛡️ Privacy](#️-privacy)
+- [💖 Support the Project](#-support-the-project)
+- [✨ Credits & Disclaimer](#-credits--discaimer)
+
+---
+
 ## 🚀 Features
 - 📨 Works on **Gmail** and **Outlook Web**  
 - 📜 Elden Ring–style banner on email sent  
@@ -137,9 +152,17 @@ Your support helps me add more languages, sounds, and customization features!
 
 ---
 
-## ✨ Credits
-Inspired by **Elden Ring** (FromSoftware).<br>
-Thanks to https://rezuaq.be/new-area/image-creator/ for the images.
+## ✨ Credits & Discaimer
+
+**Banner Images:**  
+Banner images used in this extension are generated using [From Software image macro creator](https://rezuaq.be/new-area/image-creator/), a fan-made tool inspired by FromSoftware games. All rights to original game textures and fonts utilized by the tool belong to their respective owners. For further information on asset licensing, refer to the disclaimer on the From Software image macro creator website.
+
+**Sound Effects:**  
+Sound effects included in this extension are sourced from public YouTube videos. All rights to original music and sound effects belong to FromSoftware and other respective copyright holders. If you are a copyright holder and have concerns regarding the use of these assets, please contact me for removal or modification.
+
+**Inspiration:**  
+This extension is a fan project inspired by the works of FromSoftware, including but not limited to Elden Ring, Dark Souls, Bloodborne, Sekiro, and Demon’s Souls. This project is not affiliated with, endorsed by, or associated with FromSoftware, Sony Interactive Entertainment, Bandai Namco Entertainment, Activision Publishing, or any other official entity.
+
+If you have questions or concerns about asset usage or licensing, please feel free to reach out.
 
 Created just for fun.  
-
