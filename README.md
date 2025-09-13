@@ -124,8 +124,6 @@ Elden Email is designed to work not only on Chrome, but also on the most popular
   - Search for “Elden Email” on the Chrome Web Store and install directly.
   - No manual installation required.
 
-### 🧭 Safari 
-> support for safari is coming!
 
 > **Note:**  
 > For all supported browsers, once the extension is published in their respective stores, you should always install it from the official store to receive updates and the best experience.  
