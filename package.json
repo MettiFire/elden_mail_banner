@@ -8,6 +8,7 @@
     "clean": "rm -rf dist web-ext-artifacts",
     "build:chromium": "mkdir -p dist/chromium && cp -r src/* dist/chromium && cp manifest_chrome.json dist/chromium/manifest.json",
     "build:firefox": "mkdir -p dist/firefox && cp -r src/* dist/firefox && cp manifest_firefox.json dist/firefox/manifest.json",
+    "build:all": "npm run build:chromium && npm run build:firefox",
     "lint:firefox": "web-ext lint --source-dir=dist/firefox",
     "package:firefox": "npm run build:firefox && web-ext build --source-dir=dist/firefox --artifacts-dir=web-ext-artifacts"
   },
