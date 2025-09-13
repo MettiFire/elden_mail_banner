@@ -110,16 +110,27 @@ Elden Email is designed to work not only on Chrome, but also on the most popular
   - Search for “Elden Email” and install from the store.
 
 ### 🦊 Firefox
-- **Compatibility:** Firefox uses the “WebExtensions” system, very similar to Chrome’s.
-- **How to Install:**  
-> easier steps will come!! just need to bring everything to mozilla!
-  - Visit [Firefox Add-ons](https://addons.mozilla.org).
-  - Search for “Elden Email” and install from the store.
-  - If you are publishing, note:
-    - Some APIs differ (`chrome.*` → `browser.*`).
-    - Images must be listed in `web_accessible_resources` with a slightly different format.
-    - Some functions may need a [webextension-polyfill](https://github.com/mozilla/webextension-polyfill).
-    - If you get errors, consult the [MDN migration guide](https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/Chrome_incompatibilities).
+- **Compatibility:** Firefox uses the “WebExtensions” system, very similar to Chrome’s.  
+
+- **How to Install from the Store:**  
+  1. Visit [Firefox Add-ons](https://addons.mozilla.org).  
+  2. Search for “Elden Email” and install it directly from the store.  
+
+- **How to Test or Build Locally:**  
+  1. Go to the `src/` folder of the project (this contains all source files).  
+  2. Copy all files into a new folder `dist/firefox/`.  
+  3. Rename `manifest_firefox.json` to `manifest.json`.  
+  4. Create a ZIP of **all files inside** `dist/firefox/` (do **not** zip the `firefox/` folder itself).  
+  5. Open Firefox → `about:debugging` → “This Firefox” → “Load Temporary Add-on” → select the `manifest.json` inside your ZIP or folder.  
+  6. Test the extension: the banner should appear when sending an email; the popup may not save preferences yet.  
+
+- **Publishing Notes:**  
+  - Some APIs differ (`chrome.*` → `browser.*`).  
+  - Images must be listed in `web_accessible_resources` with a slightly different format.  
+  - You may need [webextension-polyfill](https://github.com/mozilla/webextension-polyfill) for Firefox compatibility.  
+  - Provide source code and a README explaining the build process when submitting to Mozilla.  
+  - Consult the [MDN migration guide](https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/Chrome_incompatibilities) if you encounter errors.  
+
 
 ### 🦁 Brave, Vivaldi, and other Chromium Browsers
 - **Compatibility:** Full support for Chrome extensions.
