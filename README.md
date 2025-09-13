@@ -6,7 +6,6 @@ When you hit **Send** in Gmail or Outlook Web, a dramatic banner appears with so
 
 ## Table of Contents
 
-- [📜 Email Sent - Elden Ring Extension](#-email-sent---elden-ring-extension)
 - [🚀 Features](#-features)
 - [🔧 Installation](#-installation)
 - [📂 Project Structure](#-project-structure)
