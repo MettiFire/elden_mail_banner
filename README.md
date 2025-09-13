@@ -85,7 +85,7 @@ As promised, now the extension supports the following languages for the Send but
 - 🇹🇭 Thai (`ส่ง`)
 - 🇸🇪 Swedish (`Skicka`)
 
-If your language isn’t listed, don't hesitate to contact me, I will add it in the next update!
+If your language isn’t listed or it's not the right word in your system, don't hesitate to contact me, I will add it in the next update!
 
 ---
 
