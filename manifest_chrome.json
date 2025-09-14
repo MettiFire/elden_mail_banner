@@ -19,10 +19,12 @@
     {
       "matches": [
         "https://mail.google.com/*",
-        "https://outlook.office.com/*"
+        "https://outlook.office.com/*",
+        "https://outlook.live.com/*"
       ],
       "js": ["content.js"],
-      "css": ["style.css"]
+      "css": ["style.css"],
+      "all_frames": true
     }
   ],
   "icons": {
@@ -33,7 +35,8 @@
       "resources": ["assets/email_sent_yellow.png", "assets/email_sent_blue.png", "assets/email_sent_red.png","assets/elden_ring_sound.mp3", "assets/Matinia.otf"],
       "matches": [
         "https://mail.google.com/*",
-        "https://outlook.office.com/*"
+        "https://outlook.office.com/*",
+        "https://outlook.live.com/*"
       ]
     }
   ]

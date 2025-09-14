@@ -105,7 +105,6 @@ const outlookObserver = new MutationObserver(() => {
 outlookObserver.observe(document.body, { childList: true, subtree: true }); 
 */
 
-
 console.log("Elden Mail Banner content.js loaded!");
 
 // polyfill for Firefox compatibility
@@ -211,3 +210,18 @@ const outlookObserver = new MutationObserver(() => {
   });
 });
 outlookObserver.observe(document.body, { childList: true, subtree: true });
+
+
+// outlook.live.com observer
+const outlookLiveObserver = new MutationObserver(() => {
+  document.querySelectorAll('button[aria-label="Send"], button[aria-label="Invia"]').forEach(btn => {
+    if (!btn.dataset.eldenRingAttached) {
+      btn.addEventListener("click", () => {
+        console.log("Outlook Mail send button clicked");
+        setTimeout(showEldenRingBanner, 500);
+      });
+      btn.dataset.eldenRingAttached = "true";
+    }
+  });
+});
+outlookLiveObserver.observe(document.body, { childList: true, subtree: true });
