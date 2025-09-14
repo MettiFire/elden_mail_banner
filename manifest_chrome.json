@@ -12,7 +12,8 @@
    },
     "host_permissions": [
       "https://mail.google.com/*",
-      "https://outlook.office.com/*"
+      "https://outlook.office.com/*",
+      "https://outlook.live.com/*"
     ],
   "content_scripts": [
     {

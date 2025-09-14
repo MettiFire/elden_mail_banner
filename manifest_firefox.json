@@ -14,7 +14,8 @@
     {
       "matches": [
         "https://mail.google.com/*",
-        "https://outlook.office.com/*"
+        "https://outlook.office.com/*",
+        "https://outlook.live.com/*"
       ],
       "js": ["content.js"],
       "css": ["style.css"]
