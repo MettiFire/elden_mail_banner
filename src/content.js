@@ -6,10 +6,6 @@ const soundUrl = chrome.runtime.getURL("assets/elden_ring_sound.mp3");
 
 // dictionary of "Send" keywords in various languages
 const keywords = ["Invia","Send","傳送","发送","送信","보내기","Enviar","Senden","Envoyer","Отправить","إرسال","ส่ง","Skicka"];
-:wa
-
-:qa
-:wqa
 
 // default settings
 let soundEnabled = true;
