@@ -27,19 +27,18 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });*/
 
-// version 2.0 that worked fully on Chrome and partially on Firefox
 document.addEventListener("DOMContentLoaded", async () => {
   const soundToggle = document.getElementById("soundToggle");
   const colorOptions = document.querySelectorAll(".color-option");
 
   // polyfill
-  const storage = (typeof browser !== "undefined") ? browser.storage : chrome.storage;
+  const storage = (typeof browser !== "undefined") ? browser.storage.local : chrome.storage.sync;
 
   const DEFAULT_SOUND = true;
   const DEFAULT_COLOR = "yellow";
 
   // read saved preferences
-  const res = await storage.sync.get(["soundEnabled", "bannerColor"]);
+  const res = await storage.get(["soundEnabled", "bannerColor"]);
   const prefs = {
     soundEnabled: res.soundEnabled !== undefined ? res.soundEnabled : DEFAULT_SOUND,
     bannerColor: res.bannerColor || DEFAULT_COLOR
@@ -53,7 +52,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   // save sound toggle
   soundToggle.addEventListener("change", () => {
-    storage.sync.set({ soundEnabled: soundToggle.checked });
+    storage.set({ soundEnabled: soundToggle.checked });
   });
 
   // save color choice
@@ -61,7 +60,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     opt.addEventListener("click", () => {
       colorOptions.forEach(c => c.classList.remove("selected"));
       opt.classList.add("selected");
-      storage.sync.set({ bannerColor: opt.dataset.color });
+      storage.set({ bannerColor: opt.dataset.color });
     });
   });
 });
