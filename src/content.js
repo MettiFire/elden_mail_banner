@@ -225,3 +225,17 @@ const outlookLiveObserver = new MutationObserver(() => {
   });
 });
 outlookLiveObserver.observe(document.body, { childList: true, subtree: true });
+
+// proton mail observer
+const protonMailObserver = new MutationObserver(() => {
+  document.querySelectorAll('button[data-testid="composer:send-button"]').forEach(btn => {
+    if (!btn.dataset.eldenRingAttached) {
+      btn.addEventListener("click", () => {
+        console.log("Proton Mail send button clicked");
+        setTimeout(showEldenRingBanner, 500);
+      });
+      btn.dataset.eldenRingAttached = "true"
+    }
+  })
+})
+protonMailObserver.observe(document.body, {childList:true, subtree: true});
