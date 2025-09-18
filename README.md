@@ -75,20 +75,14 @@ When you hit **Send** in your mailbox, a dramatic banner appears with sound, jus
 As promised, now the extension supports the following languages for the Send button:
 
 | 🇮🇹 Italian | 🇬🇧 English | 🇨🇳 Chinese | 🇯🇵 Japanese |
-|-------------|------------|------------|-------------|
-| `Invia`     | `Send`     | `发送` / `傳送` | `送信` |
-
-| 🇰🇷 Korean | 🇪🇸 Spanish | 🇩🇪 German | 🇫🇷 French |
-|------------|------------|------------|------------|
-| `보내기`    | `Enviar`   | `Senden`   | `Envoyer` |
-
-| 🇷🇺 Russian | 🇸🇦 Arabic | 🇹🇭 Thai | 🇸🇪 Swedish |
-|-------------|-----------|---------|------------|
-| `Отправить` | `إرسال`  | `ส่ง`  | `Skicka`  |
-
-| 🇳🇴 Norwegian | 🇻🇳 Vietnamese | 🇺🇦 Ukrainian | 🇬🇧 Placeholder |
-|---------------|----------------|---------------|----------------|
-| `Sendt`       | `Gửi`          | `Надіслати`   | -              |
+|:-----------:|:-----------:|:-----------:|:-----------:|
+| `Invia`     | `Send`      | `发送` / `傳送` | `送信`     |
+| 🇰🇷 Korean  | 🇪🇸 Spanish | 🇩🇪 German  | 🇫🇷 French  |
+| `보내기`     | `Enviar`    | `Senden`    | `Envoyer`  |
+| 🇷🇺 Russian | 🇸🇦 Arabic  | 🇹🇭 Thai    | 🇸🇪 Swedish |
+| `Отправить` | `إرسال`    | `ส่ง`       | `Skicka`   |
+| 🇳🇴 Norwegian | 🇻🇳 Vietnamese | 🇺🇦 Ukrainian | - |
+| `Sendt`       | `Gửi`       | `Надіслати`  | - |
 
 
 If your language isn’t listed or it's not the right word in your system, don't hesitate to contact me, I will add it in the next update!
