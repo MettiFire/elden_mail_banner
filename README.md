@@ -75,7 +75,7 @@ When you hit **Send** in your mailbox, a dramatic banner appears with sound, jus
 As promised, now the extension supports the following languages for the Send button:
 
 | 🇮🇹 Italian: `Invia`  | 🇬🇧 English: `Send` | 🇨🇳 Chinese: `发送` / `傳送` | 🇯🇵 Japanese: `送信` |
-|:-----------:|:-----------:|:-----------:|:-----------:|
+|:-----------|:-----------|:-----------|:-----------|
 | 🇰🇷 Korean: `보내기`  | 🇪🇸 Spanish: `Enviar` | 🇩🇪 German: `Senden` | 🇫🇷 French: `Envoyer` |
 | 🇷🇺 Russian: `Отправить` | 🇸🇦 Arabic: `إرسال` | 🇹🇭 Thai: `ส่ง` | 🇸🇪 Swedish: `Skicka` |
 | 🇳🇴 Norwegian: `Sendt` | 🇻🇳 Vietnamese: `Gửi` | 🇺🇦 Ukrainian: `Надіслати` | - |
