@@ -76,12 +76,9 @@ As promised, now the extension supports the following languages for the Send but
 
 | 🇮🇹 Italian: `Invia`  | 🇬🇧 English: `Send` | 🇨🇳 Chinese: `发送` / `傳送` | 🇯🇵 Japanese: `送信` |
 |:-----------:|:-----------:|:-----------:|:-----------:|
-| 🇰🇷 Korean  | 🇪🇸 Spanish | 🇩🇪 German  | 🇫🇷 French  |
-| `보내기`     | `Enviar`    | `Senden`    | `Envoyer`  |
-| 🇷🇺 Russian | 🇸🇦 Arabic  | 🇹🇭 Thai    | 🇸🇪 Swedish |
-| `Отправить` | `إرسال`    | `ส่ง`       | `Skicka`   |
-| 🇳🇴 Norwegian | 🇻🇳 Vietnamese | 🇺🇦 Ukrainian | - |
-| `Sendt`       | `Gửi`       | `Надіслати`  | - |
+| 🇰🇷 Korean: `보내기`  | 🇪🇸 Spanish: `Enviar` | 🇩🇪 German: `Senden` | 🇫🇷 French: `Envoyer` |
+| 🇷🇺 Russian: `Отправить` | 🇸🇦 Arabic: `إرسال` | 🇹🇭 Thai: `ส่ง` | 🇸🇪 Swedish: `Skicka` |
+| 🇳🇴 Norwegian: `Sendt` | 🇻🇳 Vietnamese: `Gửi` | 🇺🇦 Ukrainian: `Надіслати` | - |
 
 
 If your language isn’t listed or it's not the right word in your system, don't hesitate to contact me, I will add it in the next update!
