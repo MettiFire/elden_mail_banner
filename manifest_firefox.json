@@ -3,7 +3,7 @@
   "name": "Elden Email",
   "version": "1.1.1",
   "description": "Shows an Elden Ring banner when you send an email",
-  "permissions": ["storage"],
+  "permissions": ["storage", "activeTab", "scripting"],
   "browser_action": {
     "default_popup": "popup.html",
     "default_icon": {
