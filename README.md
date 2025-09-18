@@ -1,4 +1,4 @@
-![License: CC BY-NC 4.0](https://img.shields.io/badge/License-CC--BY--NC%204.0-lightgrey.svg)
+![License: CC BY-NC 4.0](https://img.shields.io/badge/License-CC--BY--NC%204.0-brightgreen?style=flat-square&logo=creative-commons&logoColor=white)
 
 # 📜 _Email Sent_ - Elden Ring Extension
 An Elden Ring–inspired Chrome extension that makes sending emails more epic.  
