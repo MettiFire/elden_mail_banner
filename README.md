@@ -58,7 +58,7 @@ When you hit **Send** in your mailbox, a dramatic banner appears with sound, jus
 ├── manifest_chrome.json     # Manifest MV3 for Chrome/Edge/Brave/Opera/Vivaldi
 ├── manifest_firefox.json    # Manifest MV2 for Firefox
 ├── package.json             # Build scripts and package management
-├── LICENSE                  # MIT License
+├── LICENSE                  # License
 ├── README.md                # Rules and info
 ├── src/
 │   ├── content.js           # Core script (banner logic)
@@ -74,21 +74,21 @@ When you hit **Send** in your mailbox, a dramatic banner appears with sound, jus
 ## 🌍 Language Support
 As promised, now the extension supports the following languages for the Send button:
 
-- 🇮🇹 Italian (`Invia`)
-- 🇬🇧 English (`Send`)
-- 🇨🇳 Chinese (`发送` / `傳送`)
-- 🇯🇵 Japanese (`送信`)
-- 🇰🇷 Korean (`보내기`)
-- 🇪🇸 Spanish (`Enviar`)
-- 🇩🇪 German (`Senden`)
-- 🇫🇷 French (`Envoyer`)
-- 🇷🇺 Russian (`Отправить`)
-- 🇸🇦 Arabic (`إرسال`)
-- 🇹🇭 Thai (`ส่ง`)
-- 🇸🇪 Swedish (`Skicka`)
-- 🇳🇴 Norwegian (`Sendt`)
-- 🇻🇳 Vietnamese (`Gửi`)
-- 🇺🇦 Ukrainian (`Надіслати`)
+| 🇮🇹 Italian | 🇬🇧 English | 🇨🇳 Chinese | 🇯🇵 Japanese |
+|-------------|------------|------------|-------------|
+| `Invia`     | `Send`     | `发送` / `傳送` | `送信` |
+
+| 🇰🇷 Korean | 🇪🇸 Spanish | 🇩🇪 German | 🇫🇷 French |
+|------------|------------|------------|------------|
+| `보내기`    | `Enviar`   | `Senden`   | `Envoyer` |
+
+| 🇷🇺 Russian | 🇸🇦 Arabic | 🇹🇭 Thai | 🇸🇪 Swedish |
+|-------------|-----------|---------|------------|
+| `Отправить` | `إرسال`  | `ส่ง`  | `Skicka`  |
+
+| 🇳🇴 Norwegian | 🇻🇳 Vietnamese | 🇺🇦 Ukrainian | |
+|---------------|----------------|---------------| |
+| `Sendt`       | `Gửi`          | `Надіслати`   | |
 
 If your language isn’t listed or it's not the right word in your system, don't hesitate to contact me, I will add it in the next update!
 
