@@ -1,8 +1,8 @@
 [![License: CC BY-NC 4.0](https://img.shields.io/badge/License-CC--BY--NC%204.0-blue?style=for-the-badge&logo=creative-commons&logoColor=white)](https://creativecommons.org/licenses/by-nc/4.0/)
 
 # 📜 _Email Sent_ - Elden Ring Extension
-An Elden Ring–inspired Chrome extension that makes sending emails more epic.  
-When you hit **Send** in Gmail or Outlook Web, a dramatic banner appears with sound, just like in the Lands Between. ⚔️
+An Elden Ring–inspired Web extension that makes sending emails more epic.  
+When you hit **Send** in your mailbox, a dramatic banner appears with sound, just like in the Lands Between. ⚔️
 
 ---
 
@@ -21,7 +21,7 @@ When you hit **Send** in Gmail or Outlook Web, a dramatic banner appears with so
 ---
 
 ## 🚀 Features
-- 📨 Works on **Gmail** and **Outlook Web**  
+- 📨 Works on **Gmail**, **Outlook**, **Proton**
 - 📜 Elden Ring–style banner on email sent  
 - 🎵 Sound effect included  
 - 🗡 Custom medieval-style icon
