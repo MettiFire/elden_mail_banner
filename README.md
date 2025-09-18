@@ -86,10 +86,9 @@ As promised, now the extension supports the following languages for the Send but
 |-------------|-----------|---------|------------|
 | `Отправить` | `إرسال`  | `ส่ง`  | `Skicka`  |
 
-| 🇳🇴 Norwegian | 🇻🇳 Vietnamese | 🇺🇦 Ukrainian | |
-|---------------|----------------|---------------| |
-| `Sendt`       | `Gửi`          | `Надіслати`   | |
-
+| 🇳🇴 Norwegian | 🇻🇳 Vietnamese | 🇺🇦 Ukrainian | 🇬🇧 Placeholder |
+|---------------|----------------|---------------|----------------|
+| `Sendt`       | `Gửi`          | `Надіслати`   | -              |
 If your language isn’t listed or it's not the right word in your system, don't hesitate to contact me, I will add it in the next update!
 
 ---
