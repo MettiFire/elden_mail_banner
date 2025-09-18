@@ -58,6 +58,16 @@ function showEldenRingBanner() {
   }, 3000);
 }
 
+const hotkeyHandler = (e) => { // Listen to hotkey for sending emails
+  if ((e.ctrlKey || e.metaKey) && e.key === "Enter") {
+    console.log("Hotkey Ctrl+Enter or Cmd+Enter detected");
+    setTimeout(showEldenRingBanner, 500);
+  }
+};
+
+document.addEventListener('keydown', hotkeyHandler, true);
+console.log("Hotkey listener added");
+
 // gmail observer
 const gmailObserver = new MutationObserver(() => {
   document.querySelectorAll('div[role="button"], button[role="button"]').forEach(btn => {
@@ -75,6 +85,13 @@ const gmailObserver = new MutationObserver(() => {
       btn.addEventListener("click", () => {
         setTimeout(showEldenRingBanner, 500);
       });
+      // Handle tab nav keyboard activation
+      btn.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          setTimeout(showEldenRingBanner, 500);
+          console.log("Gmail send button activated via keyboard");
+        }
+      })
       btn.dataset.eldenRingAttached = "true";
     }
   });
