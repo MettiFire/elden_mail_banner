@@ -7,4 +7,4 @@ The extension stores only user preferences (banner color and sound setting) loca
 Elden Email does not access, read, or store any email contents.  
 No data collected by the extension is used for analytics, advertising, or any purpose beyond the extension's single function.
 
-If you have questions, contact: anna.mettifogo@gmail.com
+If you have questions, contact: mettignis@gmail.com
