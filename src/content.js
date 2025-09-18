@@ -7,7 +7,7 @@ const storage = (typeof browser !== "undefined") ? browser.storage : chrome.stor
 const soundUrl = chrome.runtime.getURL("assets/elden_ring_sound.mp3");
 
 // keywords for "Send" in various languages
-const keywords = ["Invia","Send","傳送","发送","送信","보내기","Enviar","Senden","Envoyer","Отправить","إرسال","ส่ง","Skicka","Sendt", "Gửi", "Надіслати"];
+const keywords = ["Invia","Send","傳送","发送","送信","보내기","Enviar","Senden","Envoyer","Отправить","إرسال","ส่ง","Skicka","Sendt", "Gửi", "Надіслати", "Odeslán"];
 
 // default settings
 let soundEnabled = true;
