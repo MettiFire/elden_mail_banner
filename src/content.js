@@ -81,6 +81,7 @@ const gmailObserver = new MutationObserver(() => {
 });
 gmailObserver.observe(document.body, { childList: true, subtree: true });
 
+
 // outlook observer
 const outlookObserver = new MutationObserver(() => {
   document.querySelectorAll('button, div[role="button"]').forEach(btn => {
@@ -118,3 +119,42 @@ const outlookLiveObserver = new MutationObserver(() => {
   });
 });
 outlookLiveObserver.observe(document.body, { childList: true, subtree: true });
+
+
+// protonmail.com observer and functions
+
+// recursive function to find buttons in Shadow DOMs
+function findProtonButtons(root = document) {
+  const buttons = [];
+
+  // search for buttons in the regular DOM
+  root.querySelectorAll && root.querySelectorAll('button[data-testid="composer:send-button"]').forEach(btn => {
+    buttons.push(btn);
+  });
+
+  // look for buttons in any Shadow DOM
+  if (root.querySelectorAll) {
+    root.querySelectorAll('*').forEach(el => {
+      if (el.shadowRoot) {
+        buttons.push(...findProtonButtons(el.shadowRoot));
+      }
+    });
+  }
+
+  return buttons;
+}
+
+// observer
+const protonMailObserver = new MutationObserver(() => {
+  const buttons = findProtonButtons();
+  buttons.forEach(btn => {
+    if (!btn.dataset.eldenRingAttached) {
+      btn.addEventListener("click", () => {
+        console.log("Proton Mail send button clicked");
+        setTimeout(showEldenRingBanner, 500);
+      });
+      btn.dataset.eldenRingAttached = "true";
+    }
+  });
+});
+protonMailObserver.observe(document.body, { childList: true, subtree: true });
