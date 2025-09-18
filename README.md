@@ -1,3 +1,5 @@
+![License: CC BY-NC 4.0](https://img.shields.io/badge/License-CC--BY--NC%204.0-lightgrey.svg)
+
 # 📜 _Email Sent_ - Elden Ring Extension
 An Elden Ring–inspired Chrome extension that makes sending emails more epic.  
 When you hit **Send** in Gmail or Outlook Web, a dramatic banner appears with sound, just like in the Lands Between. ⚔️
