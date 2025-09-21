@@ -15,7 +15,8 @@
       "https://outlook.office.com/*",
       "https://outlook.live.com/*",
       "https://outlook.office365.com/*",
-      "https://mail.proton.me/*"
+      "https://mail.proton.me/*",
+      "https://mail.aol.com/*"
     ],
   "content_scripts": [
     {
@@ -24,7 +25,8 @@
         "https://outlook.office.com/*",
         "https://outlook.live.com/*",
         "https://outlook.office365.com/*",
-        "https://mail.proton.me/*"
+        "https://mail.proton.me/*",
+        "https://mail.aol.com/*"
       ],
       "js": ["content.js"],
       "css": ["style.css"],
@@ -42,7 +44,8 @@
         "https://outlook.office.com/*",
         "https://outlook.live.com/*",
         "https://outlook.office365.com/*",
-        "https://mail.proton.me/*"
+        "https://mail.proton.me/*",
+        "https://mail.aol.com/*"
       ]
     }
   ]

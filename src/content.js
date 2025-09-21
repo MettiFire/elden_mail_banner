@@ -158,3 +158,20 @@ const protonMailObserver = new MutationObserver(() => {
   });
 });
 protonMailObserver.observe(document.body, { childList: true, subtree: true });
+
+
+
+// AOL Mail observer
+const aolObserver = new MutationObserver(() => {
+  document.querySelectorAll('button[data-test-id="compose-send-button"]').forEach(btn => {
+    if (!btn.dataset.eldenRingAttached) {
+      btn.addEventListener("click", () => {
+        console.log("AOL Mail send button clicked ✅");
+        setTimeout(showEldenRingBanner, 500); 
+      });
+      btn.dataset.eldenRingAttached = "true"; 
+      console.log("Listener attached to AOL Mail send button");
+    }
+  });
+});
+aolObserver.observe(document.body, { childList: true, subtree: true });
